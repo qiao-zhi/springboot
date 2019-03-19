@@ -1,5 +1,7 @@
 package org.springboot.dubbo;
 
+import java.util.concurrent.CountDownLatch;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +13,8 @@ public class MySpringBootApplication {
 	public static void main(String[] args) throws InterruptedException {
 		// 入口运行类
 		SpringApplication.run(MySpringBootApplication.class, args);
-		Thread.sleep(50 * 1000);
+
+		CountDownLatch countDownLatch = new CountDownLatch(1);
+		countDownLatch.await();
 	}
 }
